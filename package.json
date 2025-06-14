@@ -1,0 +1,28 @@
+{
+  "name": "logparser",
+  "version": "1.0.0",
+  "description": "Log Parser Application for AWS Lambda",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/local.js",
+    "deploy": "serverless deploy"
+  },
+  "keywords": [
+    "log",
+    "parser",
+    "aws",
+    "lambda"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1500.0",
+    "express": "^4.18.2",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "serverless-offline": "^13.3.0"
+  }
+}
