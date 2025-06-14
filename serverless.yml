@@ -1,0 +1,27 @@
+service: logparser
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  environment:
+    LOG_FILE_PATH: ${opt:logfile, './src/resources/programming-task-example-data.log'}
+
+functions:
+  api:
+    handler: src/index.handler
+    events:
+      - http:
+          path: /log/summary
+          method: get
+          cors: true
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3000
